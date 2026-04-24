@@ -141,6 +141,23 @@ rules:
        and dynamic in [pp, ppp]
        and instrument in [flute, piccolo, oboe, trumpet, horn]
     then warn: "Extreme high register pp is unreliable; lower register or raise dynamic."
+
+  # Vocal Prosody
+  - if instrument in [soprano, mezzo, alto, tenor, baritone, bass_vocal]
+    then require_lyric_stress_alignment: true
+    # Primary stressed syllables must land on Beats 1 or 3 in 4/4; Beat 1 in 3/4.
+
+  # Vocal Breath
+  - if instrument in [soprano, mezzo, alto, tenor, baritone, bass_vocal]
+       and phrase_length > vocal_breath_threshold
+    then require_breath_gap: true
+    # vocal_breath_threshold: 8 beats at QM=120.
+
+  # Vocal Tessatura
+  - if instrument in [soprano, tenor]
+       and register_band == high
+       and duration > 4_bars
+    then warn: "Extended high tessatura is fatiguing; return to mid register."
 ```
 
 ---
@@ -176,6 +193,9 @@ Before emitting any score, verify:
 - [ ] Harp pedal changes are physically feasible at the written tempo
 - [ ] Breath marks are inserted for wind phrases exceeding the breath threshold
 - [ ] Col legno, flutter tongue, and other extended techniques are bounded in duration
+- [ ] Vocal stressed syllables land on strong beats (Prosody Check)
+- [ ] Vocal phrases have breathing gaps (Rest or long note) every 8 beats
+- [ ] Vocal tessatura returns to the central range after excursions to high/low extremes
 
 ---
 

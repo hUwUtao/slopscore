@@ -44,8 +44,22 @@ sources below as compact priors that help an LLM start from musically plausible
    Used for: smooth voice-leading guidance centered on common tones and minimal motion.
 
 9. Local deep research report, "Orchestral Slot Grammar for Rule-Based Score Generation"
-   Link: /home/stdpi/Downloads/deep-research-report (2).md
+   Link: `book/01-functional-slot-grammar.md`
    Used for: function-first orchestration, score-part slot metadata, register/balance checks, doubling logic, polyrhythm routing, and human-playability validation.
+
+10. Project Vocal Research, "Vocal Prosody and Syllabic Stress Alignment"
+    Link: `book/06-vocal-and-lyrics.md`
+    Used for: voice type ranges, prosody stress alignment rules, syllabification logic, and vocal-specific breath thresholds.
+
+## Knowledge Architecture
+
+The project has moved from a monolithic prompt to a **Modular Knowledge Base** in the `./book/` directory. This allows the system to scale to deep specialization (like the new Vocal support) without bloating the operational system prompt.
+
+- **`00-01`**: Foundation (Theory + Orchestration logic).
+- **`02-03`**: Reference (Canonical patterns + Instrument Map).
+- **`04-05`**: Implementation (Pattern bank + Machine-checkable rules).
+- **`06`**: Specialization (Vocals).
+
 
 ## How The Project Uses These Sources
 

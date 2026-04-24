@@ -20,11 +20,23 @@ The showcase for this revision is **[Windmill](./example/claude-opus-4.6/)**, a 
 
 ## 📂 Project Structure
 
-- `prompt.md`: The "Source of Truth" composition prompt for LLMs.
-- `pipeline.py`: The pipeline for generating MIDI, MusicXML, and Audio from ABC notation.
-- `research.py`: Data-backed defaults for emotion, tempo, and theory.
-- `RESEARCH.md`: Documentation of the music-cognition research behind the project.
-- `example/`: Curated outputs from different models demonstrating theory adherence.
+- **Vocal Support**: Full integration for lyrics (`w:`), prosody alignment, and singing-part mapping.
+- **Renderer Contract**: Mandatory `Q:` headers and MusicXML standardization for professional MuseScore output.
+
+## 📂 Project Structure
+
+- `prompt.md`: The "Command Center" — a slim entry point for LLMs.
+- `book/`: The **Knowledge Base** — decomposed instruction files for theory, orchestration, instruments, and vocals.
+  - `00-music-theory-guardrails.md`: Phrasing, harmony, and cadence grammar.
+  - `01-functional-slot-grammar.md`: Pipeline decision ordering and slot taxonomy.
+  - `02-canonical-score-patterns.md`: Reusable archetypes from Beethoven, Ravel, Stravinsky, etc.
+  - `03-instrument-map.md`: Practical ranges and behavior for all families.
+  - `04-abc-pattern-bank.md`: transposable schematic etudes.
+  - `05-llm-rules-and-metadata.md`: Validation rules and YAML schema for voices.
+  - `06-vocal-and-lyrics.md`: The guide for singing parts and lyric writing.
+- `pipeline.py`: The pipeline for generating MIDI, MusicXML (with lyrics), and Audio.
+- `research.py`: Programmatic access to research-backed defaults.
+- `example/`: Curated outputs from different models.
 
 ## 🚀 Quick Start
 

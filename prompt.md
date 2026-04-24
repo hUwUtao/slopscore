@@ -676,17 +676,32 @@ V:Vox clef=treble name="Soprano"
 %reason=Carries the lyric melody in the soprano's expressive tessatura.
 ```
 
-Name tag auto-detection in the pipeline:
+Name tag detection uses **two tiers** — explicit classical type first, descriptive age/gender second (see full table in `book/06-vocal-and-lyrics.md` §6):
 
-| `name=` contains | Instrument | Clef |
-|---|---|---|
-| `Soprano` | Soprano | treble |
-| `Mezzo` | Mezzo-Soprano | treble |
-| `Alto` / `Contralto` | Alto | treble |
-| `Tenor` | Tenor | treble |
-| `Baritone` | Baritone | treble or bass |
-| `Bass` + `Voice`/`Vocal` | Bass (vocal) | bass |
-| `Voice` / `Vocal` / `Vox` / `Singer` | Soprano (default) | treble |
+**Tier 1 — explicit type names:**
+
+| `name=` contains | Voice |
+|---|---|
+| `Soprano` | Soprano |
+| `Mezzo` | Mezzo-Soprano |
+| `Contralto` / `Alto` | Contralto / Alto |
+| `Tenor` | Tenor |
+| `Baritone` | Baritone |
+| `Bass` + `Voice`/`Vocal` | Bass |
+
+**Tier 2 — descriptive inference (when no explicit type is in the name):**
+
+| `name=` describes | Inferred voice |
+|---|---|
+| `girl`, `young female`, `young woman` | Soprano |
+| `old woman`, `elderly female`, `grandmother` | Contralto |
+| `woman`, `female`, `lady` | Mezzo-Soprano |
+| `boy`, `young boy`, `treble voice` | Soprano (treble) |
+| `young man`, `young male`, `lad` | Tenor |
+| `old man`, `elderly male`, `grandfather` | Bass |
+| `man`, `male`, `gentleman` | Baritone |
+| `child`, `kid` | Soprano |
+| `Voice` / `Vox` / `Singer` (fallback) | Soprano |
 
 ### 17.2 Writing Lyrics — `w:` Field
 

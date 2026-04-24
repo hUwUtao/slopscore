@@ -237,19 +237,53 @@ The pipeline's `_score_from_simple_abc` function parses `w:` lyrics and attaches
 6. Export to PDF / MP3 from MuseScore (see prompt.md §16)
 ```
 
-### Voice Instrument Names (for pipeline auto-detection)
+### Voice Instrument Names — Detection Priority
 
-The pipeline maps `name=` values to music21 voice instruments:
+The pipeline resolves `name=` in two tiers: **explicit voice-type names first**, then **descriptive age/gender keywords**. The first match wins.
 
-| `name=` contains | music21 instrument | MusicXML part name |
+#### Tier 1 — Explicit SATB / Classical Type Names
+
+| `name=` contains | Maps to | Comfortable range |
 |---|---|---|
-| `Soprano` | `instrument.Soprano` | Soprano |
-| `Mezzo` | `instrument.MezzoSoprano` | Mezzo-Soprano |
-| `Alto` / `Contralto` | `instrument.Alto` | Alto |
-| `Tenor` | `instrument.Tenor` | Tenor |
-| `Baritone` | `instrument.Baritone` | Baritone |
-| `Bass` (Voice / Vocal) | `instrument.Bass` | Bass |
-| `Voice` / `Vocal` / `Vox` / `Singer` (unspecified) | `instrument.Soprano` | Voice |
+| `Soprano` | Soprano | C4–A5 |
+| `Mezzo` | Mezzo-Soprano | A3–F5 |
+| `Contralto` | Contralto | E3–C5 |
+| `Alto` | Alto | F3–D5 |
+| `Tenor` | Tenor | B2–G4 |
+| `Baritone` | Baritone | G2–E4 |
+| `Bass` + (`Voice`/`Vocal`/`Basso`) | Bass | E2–C4 |
+
+#### Tier 2 — Descriptive Age / Gender Inference
+
+Use these when you know the character but not the classical voice type.
+Compound descriptors are matched before simple ones (e.g. `"old woman"` beats `"woman"`).
+
+| If `name=` contains… | Inferred voice | Range | Notes |
+|---|---|---|---|
+| `young girl`, `young female`, `young woman`, `girl`, `lass` | **Soprano** | C4–A5 | Bright, high |
+| `old woman`, `old lady`, `elderly woman`, `elderly female`, `grandmother`, `grandma` | **Contralto** | E3–C5 | Dark, mature female |
+| `woman`, `female`, `lady`, `femme` | **Mezzo-Soprano** | A3–F5 | Default adult female |
+| `young boy`, `boy`, `treble voice` | **Soprano** | C4–G5 | Pre-pubescent treble |
+| `young man`, `young male`, `lad` | **Tenor** | C3–G4 | Young adult with broken voice |
+| `old man`, `elderly man`, `grandfather`, `grandpa`, `aged man` | **Bass** | E2–C4 | Deep, aged male |
+| `man`, `male`, `gentleman`, `guy` | **Baritone** | G2–E4 | Default adult male |
+| `child`, `children`, `kid`, `juvenile` | **Soprano** | C4–G5 | Generic child |
+| `Voice`, `Vocal`, `Vox`, `Singer` (nothing else matches) | **Soprano** | — | Generic fallback |
+
+#### Example name tags
+
+```abc
+V:Char1 clef=treble name="old woman"    % -> Contralto
+V:Char2 clef=treble name="young man"    % -> Tenor
+V:Char3 clef=bass   name="old man"      % -> Bass
+V:Char4 clef=treble name="girl"         % -> Soprano
+V:Char5 clef=treble name="young girl"   % -> Soprano  (same; compound match)
+V:Char6 clef=treble name="woman"        % -> Mezzo-Soprano
+V:Char7 clef=treble name="Tenor"        % -> Tenor    (tier 1 wins)
+V:Choir clef=treble name="Voice"        % -> Soprano  (generic fallback)
+```
+
+> **Priority reminder:** `name="Young Soprano"` → Soprano wins (tier 1 `soprano` matches before tier 2 `young` checks).
 
 ---
 

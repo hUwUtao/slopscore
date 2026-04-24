@@ -217,7 +217,7 @@ def _instrument_for_name(name: str):
     if "mezzo" in lowered:
         return instrument.MezzoSoprano()
     if "contralto" in lowered or ("alto" in lowered and "contralto" in lowered):
-        return instrument.Contralto()
+        return instrument.Alto()
     if "alto" in lowered:
         return instrument.Alto()
     if "tenor" in lowered:
@@ -226,8 +226,32 @@ def _instrument_for_name(name: str):
         return instrument.Baritone()
     if ("bass" in lowered and "voice" in lowered) or "bass vocal" in lowered or "basso" in lowered:
         return instrument.Bass()
+    # --- Age / gender inference (checked after explicit type names) ---
+    # Compound descriptors must come before simple gender terms.
+    # Female — young to old
+    if any(k in lowered for k in ("young girl", "young female", "young woman", "girl", "lass")):
+        return instrument.Soprano()
+    if any(k in lowered for k in ("old woman", "old lady", "elderly woman", "elderly female",
+                                   "grandmother", "grandma", "aged woman", "aged female")):
+        return instrument.Alto()        # Contralto — lowest female voice available
+    if any(k in lowered for k in ("woman", "female", "lady", "femme")):
+        return instrument.MezzoSoprano()   # default adult female
+    # Male — young to old
+    if any(k in lowered for k in ("young boy", "boy", "treble voice")):
+        return instrument.Soprano()        # pre-pubescent treble; soprano range
+    if any(k in lowered for k in ("young man", "young male", "lad")):
+        return instrument.Tenor()          # young adult male with broken voice
+    if any(k in lowered for k in ("old man", "elderly man", "elderly male",
+                                   "grandfather", "grandpa", "aged man", "aged male")):
+        return instrument.Bass()
+    if any(k in lowered for k in ("man", "male", "gentleman", "guy")):
+        return instrument.Baritone()       # default adult male
+    # Child / unspecified
+    if any(k in lowered for k in ("child", "children", "kid", "juvenile")):
+        return instrument.Soprano()
+    # Generic fallback
     if "voice" in lowered or "vocal" in lowered or "vox" in lowered or "singer" in lowered:
-        return instrument.Soprano()  # default unspecified voice
+        return instrument.Soprano()
     # --- End vocal voices ---
     if "bass" in lowered and "double" not in lowered:
         return instrument.Violoncello()
