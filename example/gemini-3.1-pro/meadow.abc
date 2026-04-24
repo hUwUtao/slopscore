@@ -1,0 +1,62 @@
+X:1
+T:Meadow
+C:AI Composer
+M:4/4
+L:1/8
+Q:1/4=96
+K:G
+%
+V:1 name="Flute"
+%slot=lead %role=main_melody %register=upper_mid %dyn=mf %art=legato
+%reason=Carries the breezy, childish main motive. High register floats like wind over the grass, ensuring clear melody transmission.
+V:2 name="Fiddle"
+%slot=countermelody %role=texture %register=mid %dyn=mp %art=detached
+%reason=Provides folk texture and rhythmic interplay, weaving around the flute to simulate farm animals bustling about.
+V:3 name="Guitar"
+%slot=harmony %role=comping %register=mid %dyn=p %art=staccato
+%reason=Provides rhythmic acoustic strumming, grounding the harmony with a happy folk feel and driving the tempo.
+V:4 name="Upright Bass" clef=bass
+%slot=bass %role=root_motion %register=low %dyn=p %art=staccato
+%reason=Anchors the harmony with simple root and fifth motion. Represents the slow, happy cows walking the meadow.
+%
+% Phase 1: Chill, Happy, Breezing (Q:1/4=96)
+% Part A
+[V:1] d2 e2 d2 B2 | G2 A2 B4 | E2 G2 c2 e2 | d6 z2 |
+[V:1] d2 e2 d2 B2 | G2 A2 B4 | E2 G2 c2 E2 | F2 A2 G4 |
+[V:2] B4 G4 | D4 G4 | G4 E4 | F4 A4 |
+[V:2] B4 G4 | D4 G4 | G4 E4 | D4 B,4 |
+[V:3] [G,B,D]2 z2 [G,B,D]2 z2 | [G,B,D]2 z2 [G,B,D]2 z2 | [C,E,G,]2 z2 [C,E,G,]2 z2 | [D,F,A,]2 z2 [D,F,A,]2 z2 |
+[V:3] [G,B,D]2 z2 [G,B,D]2 z2 | [G,B,D]2 z2 [G,B,D]2 z2 | [C,E,G,]2 z2 [C,E,G,]2 z2 | [D,F,A,]2 z2 [G,B,D]4 |
+[V:4] G,,2 z2 D,,2 z2 | G,,2 z2 D,,2 z2 | C,,2 z2 G,,2 z2 | D,,2 z2 A,,2 z2 |
+[V:4] G,,2 z2 D,,2 z2 | G,,2 z2 D,,2 z2 | C,,2 z2 G,,2 z2 | D,,2 z2 G,,4 |
+%
+% Part B
+[V:1] g4 f2 e2 | d4 B4 | c2 B2 A2 G2 | F2 A2 d4 |
+[V:1] g4 f2 e2 | d4 B4 | c2 B2 A2 G2 | F2 A2 G4 |
+[V:2] E4 B4 | D4 G4 | E4 C4 | D4 F4 |
+[V:2] E4 B4 | D4 G4 | E4 C4 | D4 B,4 |
+[V:3] [E,G,B,]2 z2 [E,G,B,]2 z2 | [G,B,D]2 z2 [G,B,D]2 z2 | [C,E,G,]2 z2 [C,E,G,]2 z2 | [D,F,A,]2 z2 [D,F,A,]2 z2 |
+[V:3] [E,G,B,]2 z2 [E,G,B,]2 z2 | [G,B,D]2 z2 [G,B,D]2 z2 | [C,E,G,]2 z2 [C,E,G,]2 z2 | [D,F,A,]2 z2 [G,B,D]4 |
+[V:4] E,,2 z2 B,,2 z2 | G,,2 z2 D,,2 z2 | C,,2 z2 G,,2 z2 | D,,2 z2 A,,2 z2 |
+[V:4] E,,2 z2 B,,2 z2 | G,,2 z2 D,,2 z2 | C,,2 z2 G,,2 z2 | D,,2 z2 G,,4 |
+%
+% Phase 2: Upbeat, Childish, Grass Aroma (Q:1/4=120)
+% Part C
+[V:1] GABc d2 d2 | edcB c2 c2 | dcBA A2 A2 | cBAG B2 G2 |
+[V:1] GABc d2 d2 | edcB c2 e2 | d2 c2 B2 A2 | G6 z2 |
+[V:2] Bcde f2 f2 | gagf e2 e2 | fedc d2 d2 | edcB d2 B2 |
+[V:2] Bcde f2 f2 | gagf e2 e2 | fedc d2 d2 | edcB d2 B2 |
+[V:3] [G,B,D]2 [G,B,D][G,B,D] [G,B,D]2 [G,B,D]2 | [C,E,G,]2 [C,E,G,][C,E,G,] [C,E,G,]2 [C,E,G,]2 | [D,F,A,]2 [D,F,A,][D,F,A,] [D,F,A,]2 [D,F,A,]2 | [G,B,D]2 [G,B,D][G,B,D] [G,B,D]2 [G,B,D]2 |
+[V:3] [G,B,D]2 [G,B,D][G,B,D] [G,B,D]2 [G,B,D]2 | [C,E,G,]2 [C,E,G,][C,E,G,] [C,E,G,]2 [C,E,G,]2 | [D,F,A,]2 [D,F,A,][D,F,A,] [D,F,A,]2 [D,F,A,]2 | [G,B,D]2 [G,B,D][G,B,D] [G,B,D]2 [G,B,D]2 |
+[V:4] G,,2 B,,2 D,,2 G,,2 | C,,2 E,,2 G,,2 C,,2 | D,,2 F,,2 A,,2 D,,2 | G,,2 F,,2 E,,2 D,,2 |
+[V:4] G,,2 B,,2 D,,2 G,,2 | C,,2 E,,2 G,,2 C,,2 | D,,2 F,,2 A,,2 D,,2 | G,,2 F,,2 E,,2 D,,2 |
+%
+% Part D
+[V:1] b4- b2 ag | e4- e2 ge | d2 B2 G2 B2 | A6 z2 |
+[V:1] b4- b2 ag | e4- e2 ge | d2 A2 F2 D2 | G6 z2 |
+[V:2] g4- g2 fe | c4- c2 ec | B2 G2 D2 G2 | F6 z2 |
+[V:2] g4- g2 fe | c4- c2 ec | F2 G2 F2 D2 | B,6 z2 |
+[V:3] [E,G,B,]4 [E,G,B,]4 | [C,E,G,]4 [C,E,G,]4 | [G,B,D]4 [G,B,D]4 | [D,F,A,]4 [D,F,A,]4 |
+[V:3] [E,G,B,]4 [E,G,B,]4 | [C,E,G,]4 [C,E,G,]4 | [D,F,A,]4 [D,F,A,]4 | [G,B,D]6 z2 |
+[V:4] E,,2 E,,2 E,,2 E,,2 | C,,2 C,,2 C,,2 C,,2 | G,,2 G,,2 G,,2 G,,2 | D,,2 D,,2 D,,2 D,,2 |
+[V:4] E,,2 E,,2 E,,2 E,,2 | C,,2 C,,2 C,,2 C,,2 | D,,2 D,,2 D,,2 D,,2 | G,,6 z2 |

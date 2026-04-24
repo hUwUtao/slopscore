@@ -252,16 +252,27 @@ def _score_from_simple_abc(abc_path: Path):
         elif line.startswith("[V:"):
             prefix, music = line.split("]", 1)
             voice_id = prefix[3:].strip()
-            bars = [bar.strip() for bar in music.replace("|]", "|").split("|")]
+            # Remove chord markers and repeat symbols before splitting into bars
+            sanitized_music = re.sub(r'"[^"]*"', "", music)
+            # Remove inline ABC tags like [Q:1/4=120] or [M:4/4]
+            sanitized_music = re.sub(r"\[[A-Z]:[^\]]*\]", "", sanitized_music)
+            sanitized_music = sanitized_music.replace("|:", "|").replace(":|", "|").replace("|]", "|")
+            bars = [bar.strip() for bar in sanitized_music.split("|")]
             for bar in bars:
                 if bar:
-                    voice_bars.setdefault(voice_id, []).append(bar.split())
+                    # Find all note/rest tokens in the bar using regex
+                    # This handles clumps like 'GABc' as well as [CEG]2 chords
+                    tokens = re.findall(r"\[[^\]]+\]\d*|[\^|_|=]?[A-Ga-gz][,']*\d*", bar)
+                    if tokens:
+                        voice_bars.setdefault(voice_id, []).append(tokens)
 
     score = stream.Score(id=title)
     score.insert(0, metadata.Metadata())
     score.metadata.title = title
     score.metadata.composer = "Music LLM Project"
     score.insert(0, tempo.MetronomeMark(number=tempo_bpm))
+
+    from music21 import chord
 
     for voice_id, definition in voice_defs.items():
         part = stream.Part(id=f"V{voice_id}")
@@ -274,9 +285,28 @@ def _score_from_simple_abc(abc_path: Path):
         for index, tokens in enumerate(voice_bars.get(voice_id, []), start=1):
             measure = stream.Measure(number=index)
             for token in tokens:
-                pitch_name, quarter_length = _abc_pitch_to_music21(token)
-                element = note.Rest() if pitch_name is None else note.Note(pitch_name)
-                element.duration = duration.Duration(quarter_length)
+                if token.startswith("["):
+                    # Extract multiplier after the bracket, e.g., [CEG]2 -> 2
+                    m_len = re.search(r"\](\d*)$", token)
+                    multiplier = int(m_len.group(1) or "1") if m_len else 1
+                    
+                    chord_notes = re.findall(r"[\^|_|=]?[A-Ga-gz][,']*\d*", token)
+                    pitches = []
+                    ql = 0.5 * multiplier
+                    if chord_notes:
+                        for cn in chord_notes:
+                            p, dur = _abc_pitch_to_music21(cn)
+                            if p:
+                                pitches.append(p)
+                            ql = dur * multiplier # Inherit internal duration if present
+                        element = chord.Chord(pitches)
+                    else:
+                        element = note.Rest()
+                    element.duration = duration.Duration(ql)
+                else:
+                    pitch_name, quarter_length = _abc_pitch_to_music21(token)
+                    element = note.Rest() if pitch_name is None else note.Note(pitch_name)
+                    element.duration = duration.Duration(quarter_length)
                 measure.append(element)
             part.append(measure)
         score.append(part)
@@ -318,3 +348,30 @@ def write_abc_iteration(
     abc_path = write_abc_output(title, abc_text, root=root, run_id=run_id)
     derivative_paths = build_derivatives_from_abc(abc_path, root=root)
     return abc_path, derivative_paths
+
+
+if __name__ == "__main__":
+    import argparse
+    import sys
+
+    parser = argparse.ArgumentParser(description="Music LLM Pipeline CLI")
+    parser.add_argument("title", help="Slugified title for the composition")
+    parser.add_argument("--run-id", help="Optional run ID for manifest tracking")
+    
+    args = parser.parse_args()
+    
+    # Read ABC content from stdin
+    abc_content = sys.stdin.read()
+    if not abc_content.strip():
+        print("Error: No ABC content provided via stdin.", file=sys.stderr)
+        sys.exit(1)
+        
+    try:
+        abc_path, derivatives = write_abc_iteration(args.title, abc_content, run_id=args.run_id)
+        print(f"SUCCESS")
+        print(f"ABC: {abc_path}")
+        print(f"MusicXML: {derivatives.musicxml}")
+        print(f"MIDI: {derivatives.midi}")
+    except Exception as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(1)

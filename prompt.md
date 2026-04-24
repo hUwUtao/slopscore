@@ -11,15 +11,13 @@ process or invent new locations.
 
 When you have file-system access, follow this contract exactly:
 
-1. write the finished ABC source file into `workspace/outputs/abc/`
-2. use a slugified title as the filename, for example `workspace/outputs/abc/moonlit-procession.abc`
-3. if downstream conversion is requested, place:
-   - MusicXML in `workspace/outputs/musicxml/`
-   - MIDI in `workspace/outputs/midi/`
-   - rendered audio in `workspace/outputs/audio/`
-   - spectrograms in `workspace/outputs/spectrograms/`
-4. do not create ad hoc output folders
-5. do not ask where to save the composition unless the caller explicitly overrides the pipeline
+1. Use the **Project Tool Manual** (Section 10) to write files.
+2. The pipeline automatically places files in the following canonical locations:
+   - ABC: `workspace/outputs/abc/`
+   - MusicXML: `workspace/outputs/musicxml/`
+   - MIDI: `workspace/outputs/midi/`
+3. Do not create ad hoc output folders.
+4. **Mandatory Build:** Every time you write an ABC file, you must immediately generate the MusicXML and MIDI derivatives using the provided tool.
 
 If you do not have file-system access, return valid ABC notation only.
 
@@ -301,7 +299,37 @@ Before returning the ABC:
 
 ## 9. Final Response Rule
 
-If you have file access, create the file in `workspace/outputs/abc/` and return
-the created path plus minimal status. If you do not have file access, return
-only the finished ABC notation unless the caller explicitly requests
-commentary, analysis, or multiple options.
+If you have file access, use the **Project Tool Manual** to write the ABC and generate derivatives in one step. Return the success message from the tool plus minimal status. Do not perform extra source reading of `pipeline.py` as this manual is the authoritative source for file operations.
+
+## 10. Project Tool Manual
+
+Use `pipeline.py` as a CLI tool to automate file creation and derivative generation. This tool ensures ABC, MusicXML, and MIDI files are created in their canonical locations and stay in sync.
+
+### Command Syntax
+
+Pipe the ABC content into `pipeline.py` using `run_shell_command` (using a heredoc is recommended for multi-line content):
+
+```bash
+cat <<'EOF' | .venv/bin/python3 pipeline.py "SLUGIFIED_TITLE" [--run-id "RUN_ID"]
+ABC_CONTENT_HERE
+EOF
+```
+
+### Examples
+
+**Writing a new composition:**
+```bash
+cat <<'EOF' | .venv/bin/python3 pipeline.py "moonlit-procession"
+X:1
+T:Moonlit Procession
+M:4/4
+L:1/8
+K:G
+...
+EOF
+```
+
+### Output Behavior
+- **Success:** The tool prints the absolute paths of the generated ABC, MusicXML, and MIDI files.
+- **Location:** Files are automatically placed in `workspace/outputs/{abc,musicxml,midi}/`.
+- **Derivatives:** MusicXML and MIDI are ALWAYS generated from the piped ABC content.
