@@ -1,0 +1,144 @@
+X:1
+T:Windmill
+C:Music LLM Project
+M:4/4
+L:1/8
+Q:1/4=96
+K:G
+%
+V:Fl name="Flute"
+%slot=lead %role=main_melody %register=upper_mid %dyn=mf %art=staccato+slur
+%reason=Solo flute carries the catchy hook motive with staccato attacks and slurred phrase tails. Punchy short cells create earworm recall.
+V:Ob name="Oboe"
+%slot=countermelody %role=harmonic_answer %register=upper_mid %dyn=p %art=staccato
+%reason=Oboe answers the flute in staccato thirds, creating call-and-response catchiness. Drops out at texture drops for contrast.
+V:Chip name="Chiptune Pulse"
+%slot=color %role=chiptune_mirror %register=high %dyn=pp %art=staccato
+%reason=High pulse-wave mirrors the hook staccato. Drops out during breakdown for dramatic re-entry.
+V:Hp name="Harp"
+%slot=harmony %role=arpeggiated_chords %register=mid %dyn=p %art=arpeggiated
+%reason=Harp arpeggios shimmer underneath. Sustains through drops to hold harmonic continuity.
+V:Gl name="Glockenspiel"
+%slot=color %role=shimmer_accent %register=high %dyn=pp %art=staccato
+%reason=Glockenspiel punctuates phrase endings and drop re-entries with bright staccato chimes.
+V:Pz name="Violin"
+%slot=ostinato %role=pizzicato_pulse %register=mid %dyn=mp %art=staccato
+%reason=Pizzicato violins drive the rhythmic engine with tight staccato chord stabs. Core groove element.
+V:Ma name="Marimba"
+%slot=ostinato %role=warm_pulse %register=mid %dyn=mp %art=staccato
+%reason=Marimba interlocks with pizz violins in offset staccato pattern for polyrhythmic groove.
+V:Ce name="Cello" clef=bass
+%slot=bass %role=walking_bassline %register=low %dyn=mp %art=staccato+legato
+%reason=Cello walks with staccato plucks in groovy sections, switches to slurred legato at drops for contrast.
+V:Wb name="Woodblock"
+%slot=punctuation %role=rhythmic_anchor %register=mid %dyn=p %art=staccato
+%reason=Woodblock snaps on beats 1 and 3, drops away for breakdown tension.
+V:Sh name="Shaker"
+%slot=color %role=rhythmic_texture %register=high %dyn=pp %art=staccato
+%reason=Shaker eighth-notes provide constant staccato air. Drops out at breakdowns.
+%
+% ================================================================
+% PHASE 1 — Catchy hook, full groove, drop at bar 10 (bars 1–12)
+% Progression: G-C-D-G | G-Em-C-D | G-Em (DROP) C-D-G
+% ================================================================
+%
+% --- Bars 1-4: Hook statement, staccato+slur motive ---
+[V:Fl] d B d e d2 z2 | c B A G A2 z2 | d B d e d2 B2 | A2 B2 G4 |
+[V:Ob] B G B c B2 z2 | A G F E F2 z2 | B G B c B2 G2 | F2 G2 E4 |
+[V:Chip] d' b d' e' d'2 z2 | c' b a g a2 z2 | d' b d' e' d'2 b2 | a2 b2 g4 |
+[V:Hp] G B d B G B d B | C E G E C E G E | D F A F D F A F | G B d B G B d B |
+[V:Gl] d'2 z2 z4 | z4 z4 | d'2 z2 z4 | z4 b4 |
+[V:Pz] [GB] z [GB] z [GB] z [GB] z | [CE] z [CE] z [CE] z [CE] z | [DF] z [DF] z [DF] z [DF] z | [GB] z [GB] z [GB] z [GB] z |
+[V:Ma] z G z B z d z B | z C z E z G z E | z D z F z A z F | z G z B z d z B |
+[V:Ce] G, z D, z G, z D, z | C, z G, z C, z G, z | D, z A, z D, z A, z | G, z D, z G,4 |
+[V:Wb] G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,2 z2 |
+[V:Sh] G z G z G z G z | G z G z G z G z | G z G z G z G z | G z G z G z G z |
+%
+% --- Bars 5-8: Hook variation, building intensity ---
+[V:Fl] d B d e g2 e2 | d B A G B2 z2 | e d e g a2 g2 | e2 d2 d4 |
+[V:Ob] B G B c e2 c2 | B G F E G2 z2 | c B c e f2 e2 | c2 B2 B4 |
+[V:Chip] d' b d' e' g'2 e'2 | d' b a g b2 z2 | e' d' e' g' a'2 g'2 | e'2 d'2 d'4 |
+[V:Hp] G B d B G B d B | E G B G E G B G | C E G E C E G E | D F A F D F A F |
+[V:Gl] z4 d'4 | e'2 z2 z4 | z4 c'4 | d'2 d'2 z4 |
+[V:Pz] [GB] z [GB] z [GB] z [GB] z | [EG] z [EG] z [EG] z [EG] z | [CE] z [CE] z [CE] z [CE] z | [DF] z [DF] z [DF] z [DF] z |
+[V:Ma] z G z B z d z B | z E z G z B z G | z C z E z G z E | z D z F z A z F |
+[V:Ce] G, z D, z G, z D, z | E, z B, z E, z B, z | C, z G, z C, z G, z | D, z A, z D,4 |
+[V:Wb] G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,2 z2 |
+[V:Sh] G z G z G z G z | G z G z G z G z | G z G z G z G z | G z G z G z G z |
+%
+% --- Bars 9-10: === DROP === Thin texture, harp+cello+flute only ---
+[V:Fl] B4 d4 | e4 d4 |
+[V:Ob] z8 | z8 |
+[V:Chip] z8 | z8 |
+[V:Hp] G B d B G B d B | E G B G C E G E |
+[V:Gl] z8 | z8 |
+[V:Pz] z8 | z8 |
+[V:Ma] z8 | z8 |
+[V:Ce] G,8 | E,4 C,4 |
+[V:Wb] z8 | z8 |
+[V:Sh] z8 | z8 |
+%
+% --- Bars 11-12: === DROP REBUILD === All voices re-enter staccato ---
+[V:Fl] d B d e d2 z2 | A2 B2 G4 |
+[V:Ob] B G B c B2 z2 | F2 G2 E4 |
+[V:Chip] d' b d' e' d'2 z2 | a2 b2 g4 |
+[V:Hp] D F A F D F A F | G B d B G B d B |
+[V:Gl] d'4 z4 | b4 d'4 |
+[V:Pz] [DF] z [DF] z [DF] z [DF] z | [GB] z [GB] z [GB] z [GB] z |
+[V:Ma] z D z F z A z F | z G z B z d z B |
+[V:Ce] D, z A, z D, z A, z | G, z D, z G,4 |
+[V:Wb] G,2 z2 G,2 z2 | G,2 z2 G,2 z2 |
+[V:Sh] G z G z G z G z | G z G z G z G z |
+%
+% ================================================================
+% PHASE 2 — Higher energy, new contour, second drop, PAC close (bars 13–24)
+% Progression: C-G-Am-D | C-G-D-G | G-Em (DROP) | C-D-G (rebuild+PAC)
+% ================================================================
+%
+% --- Bars 13-16: New contour, staccato call-response ---
+[V:Fl] e d e g a2 g2 | d B d e d2 z2 | c B c e d2 c2 | d2 e2 d4 |
+[V:Ob] c B c e f2 e2 | B G B c B2 z2 | A G A c B2 A2 | B2 c2 B4 |
+[V:Chip] e' d' e' g' a'2 g'2 | d' b d' e' d'2 z2 | c' b c' e' d'2 c'2 | d'2 e'2 d'4 |
+[V:Hp] C E G E C E G E | G B d B G B d B | A c e c A c e c | D F A F D F A F |
+[V:Gl] e'2 z2 z4 | d'2 z2 z4 | c'2 z2 z4 | d'4 z4 |
+[V:Pz] [CE] z [CE] z [CE] z [CE] z | [GB] z [GB] z [GB] z [GB] z | [Ac] z [Ac] z [Ac] z [Ac] z | [DF] z [DF] z [DF] z [DF] z |
+[V:Ma] z C z E z G z E | z G z B z d z B | z A z c z e z c | z D z F z A z F |
+[V:Ce] C, z G, z C, z G, z | G, z D, z G, z D, z | A, z E, z A, z E, z | D, z A, z D,4 |
+[V:Wb] G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,2 z2 |
+[V:Sh] G z G z G z G z | G z G z G z G z | G z G z G z G z | G z G z G z G z |
+%
+% --- Bars 17-18: Hook reprise, staccato punch ---
+[V:Fl] d B d e g2 e2 | d B A G B2 z2 |
+[V:Ob] B G B c e2 c2 | B G F E G2 z2 |
+[V:Chip] d' b d' e' g'2 e'2 | d' b a g b2 z2 |
+[V:Hp] C E G E C E G E | G B d B G B d B |
+[V:Gl] z4 e'4 | d'4 z4 |
+[V:Pz] [CE] z [CE] z [CE] z [CE] z | [GB] z [GB] z [GB] z [GB] z |
+[V:Ma] z C z E z G z E | z G z B z d z B |
+[V:Ce] C, z G, z C, z G, z | G, z D, z G, z D, z |
+[V:Wb] G,2 z2 G,2 z2 | G,2 z2 G,2 z2 |
+[V:Sh] G z G z G z G z | G z G z G z G z |
+%
+% --- Bars 19-20: === DROP 2 === Stripped, harp+glock+cello only ---
+[V:Fl] z8 | z8 |
+[V:Ob] z8 | z8 |
+[V:Chip] z8 | z8 |
+[V:Hp] D F A F D F A F | G B d B G B d B |
+[V:Gl] d'4 z4 | z4 b4 |
+[V:Pz] z8 | z8 |
+[V:Ma] z8 | z8 |
+[V:Ce] D,8 | G,8 |
+[V:Wb] z8 | z8 |
+[V:Sh] z8 | z8 |
+%
+% --- Bars 21-24: === FULL REBUILD === Biggest re-entry, PAC for loop ---
+[V:Fl] d B d e d2 z2 | e d e g a2 g2 | d B d e d2 B2 | A2 B2 G4 |
+[V:Ob] B G B c B2 z2 | c B c e f2 e2 | B G B c B2 G2 | F2 G2 E4 |
+[V:Chip] d' b d' e' d'2 z2 | e' d' e' g' a'2 g'2 | d' b d' e' d'2 b2 | a2 b2 g4 |
+[V:Hp] G B d B G B d B | C E G E C E G E | D F A F D F A F | G B d B G4 |
+[V:Gl] d'4 z4 | e'4 z4 | d'4 z4 | b4 d'4 |
+[V:Pz] [GB] z [GB] z [GB] z [GB] z | [CE] z [CE] z [CE] z [CE] z | [DF] z [DF] z [DF] z [DF] z | [GB] z [GB] z [GB]2 z2 |
+[V:Ma] z G z B z d z B | z C z E z G z E | z D z F z A z F | z G z B G4 |
+[V:Ce] G, z D, z G, z D, z | C, z G, z C, z G, z | D, z A, z D, z A, z | G, z D, z G,4 |
+[V:Wb] G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,2 z2 | G,2 z2 G,4 |
+[V:Sh] G z G z G z G z | G z G z G z G z | G z G z G z G z | G z G z G4 |

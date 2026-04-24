@@ -207,10 +207,48 @@ def _instrument_for_name(name: str):
         return instrument.Flute()
     if "fiddle" in lowered or "violin" in lowered:
         return instrument.Violin()
+    if "viola" in lowered:
+        return instrument.Viola()
     if "cello" in lowered:
         return instrument.Violoncello()
+    if "bass" in lowered and "double" not in lowered:
+        return instrument.Violoncello()
+    if "double bass" in lowered or "contrabass" in lowered:
+        return instrument.Contrabass()
     if "harp" in lowered:
         return instrument.Harp()
+    if "oboe" in lowered:
+        return instrument.Oboe()
+    if "clarinet" in lowered:
+        return instrument.Clarinet()
+    if "bassoon" in lowered:
+        return instrument.Bassoon()
+    if "trumpet" in lowered:
+        return instrument.Trumpet()
+    if "horn" in lowered:
+        return instrument.Horn()
+    if "trombone" in lowered:
+        return instrument.Trombone()
+    if "tuba" in lowered:
+        return instrument.Tuba()
+    if "marimba" in lowered:
+        return instrument.Marimba()
+    if "xylophone" in lowered:
+        return instrument.Xylophone()
+    if "glockenspiel" in lowered or "bells" in lowered:
+        return instrument.Glockenspiel()
+    if "vibraphone" in lowered:
+        return instrument.Vibraphone()
+    if "timpani" in lowered:
+        return instrument.Timpani()
+    if "woodblock" in lowered or "wood block" in lowered:
+        return instrument.Woodblock()
+    if "shaker" in lowered or "percussion" in lowered:
+        return instrument.Percussion()
+    if "chiptune" in lowered or "synth" in lowered or "pulse" in lowered:
+        return instrument.ElectricOrgan()
+    if "guitar" in lowered:
+        return instrument.AcousticGuitar()
     return instrument.Piano()
 
 
