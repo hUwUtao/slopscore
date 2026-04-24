@@ -30,6 +30,7 @@
 14. [Final Response Rule](#14-final-response-rule)
 15. [Project Tool Manual](#15-project-tool-manual)
 16. [MuseScore Rendering Guide](#16-musescore-rendering-guide)
+17. [Vocal Support — Lyrics and Singing Parts](#17-vocal-support--lyrics-and-singing-parts)
 
 ---
 
@@ -655,6 +656,71 @@ for f in workspace/outputs/musicxml/*.musicxml; do
   xvfb-run -a musescore4 "$f" -o "workspace/outputs/audio/${slug}.mp3"
 done
 ```
+
+---
+
+---
+
+## 17. Vocal Support — Lyrics and Singing Parts
+
+> **Full reference -> [`book/06-vocal-and-lyrics.md`](book/06-vocal-and-lyrics.md)**
+> Covers: voice type ranges (Soprano / Mezzo / Alto / Tenor / Baritone / Bass),
+> ABC `w:` lyrics syntax, syllabification and prosody rules, breath mark guidelines,
+> melisma/hold tokens, pipeline MusicXML lyric export, and MuseScore rendering.
+
+### 17.1 Declaring a Vocal Voice
+
+```abc
+V:Vox clef=treble name="Soprano"
+%slot=lead %role=vocal_melody %register=mid_high %dyn=mf %art=legato
+%reason=Carries the lyric melody in the soprano's expressive tessatura.
+```
+
+Name tag auto-detection in the pipeline:
+
+| `name=` contains | Instrument | Clef |
+|---|---|---|
+| `Soprano` | Soprano | treble |
+| `Mezzo` | Mezzo-Soprano | treble |
+| `Alto` / `Contralto` | Alto | treble |
+| `Tenor` | Tenor | treble |
+| `Baritone` | Baritone | treble or bass |
+| `Bass` + `Voice`/`Vocal` | Bass (vocal) | bass |
+| `Voice` / `Vocal` / `Vox` / `Singer` | Soprano (default) | treble |
+
+### 17.2 Writing Lyrics — `w:` Field
+
+Place a `w:` line **immediately after** the `[V:...]` music line it belongs to:
+
+```abc
+[V:Vox] d2 e d | c4 | B c d e | d4 |
+w: Sing- ing in the | light, | reach- ing for the | sky. |
+```
+
+| `w:` Token | Meaning |
+|---|---|
+| `word` | Single syllable — one note |
+| `syl-` | Continues to next note (hyphen displayed) |
+| `_` | Hold / melisma — extends previous syllable |
+| `*` | Skip this note (no lyric) |
+| `|` | Bar marker — ignored |
+
+### 17.3 Pipeline Behavior
+
+The pipeline parses `w:` lines and calls `element.addLyric()` on each non-rest note.
+The MusicXML output contains `<lyric>` elements which MuseScore renders with syllable
+hyphens and melisma lines.
+
+**Mandatory `Q:` applies to vocal pieces too** — correct tempo is critical for MuseScore
+playback expression and lyric spacing.
+
+### 17.4 Key Prosody Rules
+
+- **Stressed syllables on strong beats** — "BEA-yoo-ti-ful" -> "BEA" on beat 1.
+- **Open vowels on high notes** — prefer "ah" / "oh" above the staff; avoid "ee" / "ih".
+- **Long sustains need open vowels** — closing consonants (t, k, p) on short notes only.
+- **Breath gaps** — no more than ~8 beats of unbroken melody without a rest or long note.
+- **Leaps > octave** — avoid for untrained voices; prepare with stepwise approach.
 
 ---
 

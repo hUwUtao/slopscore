@@ -211,6 +211,24 @@ def _instrument_for_name(name: str):
         return instrument.Viola()
     if "cello" in lowered:
         return instrument.Violoncello()
+    # --- Vocal voices (must come before generic "bass" check) ---
+    if "soprano" in lowered:
+        return instrument.Soprano()
+    if "mezzo" in lowered:
+        return instrument.MezzoSoprano()
+    if "contralto" in lowered or ("alto" in lowered and "contralto" in lowered):
+        return instrument.Contralto()
+    if "alto" in lowered:
+        return instrument.Alto()
+    if "tenor" in lowered:
+        return instrument.Tenor()
+    if "baritone" in lowered:
+        return instrument.Baritone()
+    if ("bass" in lowered and "voice" in lowered) or "bass vocal" in lowered or "basso" in lowered:
+        return instrument.Bass()
+    if "voice" in lowered or "vocal" in lowered or "vox" in lowered or "singer" in lowered:
+        return instrument.Soprano()  # default unspecified voice
+    # --- End vocal voices ---
     if "bass" in lowered and "double" not in lowered:
         return instrument.Violoncello()
     if "double bass" in lowered or "contrabass" in lowered:
@@ -252,6 +270,24 @@ def _instrument_for_name(name: str):
     return instrument.Piano()
 
 
+def _parse_abc_lyrics(raw: str) -> list[str]:
+    """Parse an ABC ``w:`` lyrics line into a list of syllable tokens.
+
+    ABC lyrics rules implemented here:
+      - space-separated tokens map sequentially to notes
+      - ``|`` bar-alignment markers are discarded
+      - ``-`` continuation suffix keeps the hyphen trimmed at display time
+      - ``_`` hold/melisma: extend previous syllable (no new text on this note)
+      - ``*`` skip: this note gets no lyric
+    """
+    tokens = []
+    for part in raw.split():
+        if part == "|":
+            continue  # bar separator, not a syllable
+        tokens.append(part)
+    return tokens
+
+
 def _score_from_simple_abc(abc_path: Path):
     """Create a measured music21 score from the generated ABC subset."""
     from music21 import clef, duration, key, metadata, meter, note, stream, tempo
@@ -263,6 +299,8 @@ def _score_from_simple_abc(abc_path: Path):
     tempo_bpm = 120
     voice_defs: dict[str, dict[str, str]] = {}
     voice_bars: dict[str, list[list[str]]] = {}
+    voice_lyrics: dict[str, list[str]] = {}  # voice_id -> flat syllable list
+    _lyric_voice: str | None = None  # most recent voice seen in [V:] line
 
     for raw_line in text.splitlines():
         line = raw_line.strip()
@@ -290,6 +328,7 @@ def _score_from_simple_abc(abc_path: Path):
         elif line.startswith("[V:"):
             prefix, music = line.split("]", 1)
             voice_id = prefix[3:].strip()
+            _lyric_voice = voice_id  # track for following w: lines
             # Remove chord markers and repeat symbols before splitting into bars
             sanitized_music = re.sub(r'"[^"]*"', "", music)
             # Remove inline ABC tags like [Q:1/4=120] or [M:4/4]
@@ -303,6 +342,10 @@ def _score_from_simple_abc(abc_path: Path):
                     tokens = re.findall(r"\[[^\]]+\]\d*|[\^|_|=]?[A-Ga-gz][,']*\d*", bar)
                     if tokens:
                         voice_bars.setdefault(voice_id, []).append(tokens)
+        elif line.lower().startswith("w:") and _lyric_voice is not None:
+            # ABC lyrics field: attach syllables to the most recent voice
+            syllables = _parse_abc_lyrics(line[2:].strip())
+            voice_lyrics.setdefault(_lyric_voice, []).extend(syllables)
 
     score = stream.Score(id=title)
     score.insert(0, metadata.Metadata())
@@ -311,6 +354,9 @@ def _score_from_simple_abc(abc_path: Path):
     score.insert(0, tempo.MetronomeMark(number=tempo_bpm))
 
     from music21 import chord
+
+    # Lyric cursors: track how many syllables have been consumed per voice
+    lyric_cursor: dict[str, int] = {vid: 0 for vid in voice_defs}
 
     for voice_id, definition in voice_defs.items():
         part = stream.Part(id=f"V{voice_id}")
@@ -345,6 +391,26 @@ def _score_from_simple_abc(abc_path: Path):
                     pitch_name, quarter_length = _abc_pitch_to_music21(token)
                     element = note.Rest() if pitch_name is None else note.Note(pitch_name)
                     element.duration = duration.Duration(quarter_length)
+                # --- Attach lyric syllable if this voice has w: lyrics ---
+                if not isinstance(element, note.Rest):
+                    lyr_list = voice_lyrics.get(voice_id, [])
+                    cur = lyric_cursor.get(voice_id, 0)
+                    while cur < len(lyr_list):
+                        syl = lyr_list[cur]
+                        cur += 1
+                        if syl == "_":
+                            # Melisma hold: extend previous syllable, no new text
+                            break
+                        elif syl == "*":
+                            # Skip: this note intentionally has no lyric
+                            break
+                        else:
+                            display = syl.rstrip("-")  # strip continuation dash
+                            if display:
+                                element.addLyric(display)
+                            break
+                    lyric_cursor[voice_id] = cur
+                # -----------------------------------------------------------
                 measure.append(element)
             part.append(measure)
         score.append(part)

@@ -17,6 +17,7 @@ a linked set.
 | `03-instrument-map.md` | **Full orchestral instrument reference** — practical written ranges (conservative), slot profiles, timbre/register notes, common articulations, doubling partners, ABC family tags, special technique tables for strings and brass | `prompt.md` §8 |
 | `04-abc-pattern-bank.md` | **15 original schematic etudes** organized by instrument family and slot — melody, harmony-inner, ostinato, color, ensemble excerpt, countermelody, inner-motion, color-lead (Stravinsky archetype), low melody, pedal bass, march-ostinato, harp pad, celesta magic-color, timpani punctuation, snare motor-grid. Includes transposition quick reference and slot conflict table. | `prompt.md` §10 |
 | `05-llm-rules-and-metadata.md` | **Machine-checkable orchestration rule system** — per-voice YAML metadata schema (voice_id, slot, register_band, dynamic, attack_class, doubling_partner, polyrhythm_group, human_constraint, etc.), 9 YAML validation rules, practical composition defaults table, pre-emit validation checklist | `prompt.md` §11, §13 |
+| `06-vocal-and-lyrics.md` | **Vocal support** — voice type ranges (Soprano/Mezzo/Alto/Tenor/Baritone/Bass), ABC `w:` lyrics syntax, syllabification rules, prosody (stress alignment, open vowels, breath gaps), melisma/hold/skip tokens, pipeline `w:` -> MusicXML lyric embedding, MuseScore rendering of lyrics, SATB example | `prompt.md` §17 |
 
 ---
 
