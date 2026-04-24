@@ -1,0 +1,25 @@
+[project]
+name = "music-llm-project"
+version = "0.1.0"
+description = "Tools and prompt scaffolding for an LLM‑assisted music composition pipeline"
+authors = [ { name = "AI Composer", email = "composer@example.com" } ]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "music21>=8,<9",
+  "librosa>=0.10.1,<0.11",
+  "soundfile>=0.12.1,<0.13",
+]
+
+[project.optional-dependencies]
+dev = [ "pytest>=8,<9", "black>=24,<25", "ruff>=0.4,<0.5" ]
+
+[tool.setuptools]
+packages = ["music_llm_project"]
+py-modules = ["helper", "pipeline", "research"]
+
+[tool.uv]
+# The uv tool recognises the [project] section above and installs
+# dependencies accordingly.  You can create a virtual environment via
+# `uv venv .venv` and then run `uv pip install -e .` to install this
+# project in editable mode.

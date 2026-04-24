@@ -1,0 +1,35 @@
+X:1
+T:Wheatbreeze
+C:Music LLM Project
+M:3/4
+L:1/8
+Q:1/4=96
+K:D
+V:1 name="Tin Whistle" clef=treble
+V:2 name="Little Fiddle" clef=treble
+V:3 name="Warm Cello" clef=bass
+V:4 name="Farm Harp" clef=treble
+%slot=lead %role=main_melody %register=upper_mid %dyn=mp %art=legato
+%reason=Carries the childlike sky-blue hook with stepwise motion, one gentle apex, and no same-register competitor.
+[V:1] A2 | d2 f2 e2 | d2 A2 F2 | G2 B2 A2 | F4 A2 |
+[V:1] d2 f2 e2 | d2 A2 F2 | E2 G2 F2 | D4 A2 |
+[V:1] B2 d2 c2 | B2 A2 F2 | G2 B2 A2 | F4 A2 |
+[V:1] d2 f2 e2 | d2 A2 F2 | E2 G2 F2 | D6 |]
+%slot=countermelody %role=answering_breeze %register=mid_high %dyn=p %art=light_legato
+%reason=Answers the lead in shorter arcs, adding windy motion while leaving the main melody clearly singable.
+[V:2] z2 | z2 A2 B2 | A2 F2 D2 | E2 G2 F2 | D4 z2 |
+[V:2] z2 A2 B2 | A2 F2 D2 | C2 E2 D2 | D4 z2 |
+[V:2] G2 B2 A2 | G2 F2 D2 | E2 G2 F2 | D4 z2 |
+[V:2] z2 A2 B2 | A2 F2 D2 | C2 E2 D2 | D6 |]
+%slot=bass %role=tonic_ground %register=low %dyn=p %art=warm_tenuto
+%reason=Keeps the farm-ground pulse wide and uncluttered, clarifying tonic and dominant without muddying the lead.
+[V:3] A,2 | D,3 A, D2 | D,3 A, D2 | G,3 D G,2 | D,3 A, D2 |
+[V:3] D,3 A, D2 | D,3 A, D2 | A,3 E A,2 | D,3 A, D2 |
+[V:3] G,3 D G,2 | D,3 A, D2 | G,3 D G,2 | D,3 A, D2 |
+[V:3] D,3 A, D2 | D,3 A, D2 | A,3 E A,2 | D,6 |]
+%slot=pad %role=soft_harmonic_air %register=mid %dyn=pp %art=rolled_broken_chords
+%reason=Creates the cold breeze and open field shimmer with sparse broken chords, staying softer than the melody and counterline.
+[V:4] z2 | F2 A2 d2 | F2 A2 d2 | G2 B2 d2 | F2 A2 d2 |
+[V:4] F2 A2 d2 | F2 A2 d2 | E2 A2 c2 | F2 A2 d2 |
+[V:4] G2 B2 d2 | F2 A2 d2 | G2 B2 d2 | F2 A2 d2 |
+[V:4] F2 A2 d2 | F2 A2 d2 | E2 A2 c2 | F6 |]
