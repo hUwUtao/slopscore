@@ -1,4 +1,4 @@
-# Antigravity Music LLM Project
+# Music LLM Project
 
 A research-backed framework for autonomous music composition using Large Language Models. This project bridges the gap between generic text prompts and structured, intentional music theory.
 

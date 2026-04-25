@@ -1,0 +1,107 @@
+X:1
+T:White Space Nocturne
+M:3/4
+L:1/8
+Q:1/4=103
+K:Db
+%
+% === ORCHESTRAL NOCTURNE — "White Room" Scene ===
+% Form: A(m1-8) B(m9-16) C(m17-24) D(m25-32) E(m33-40)
+% Solo piano → +celesta → +strings/harp → +woodwinds → string core → piano return
+% Harmonic palette: Db major / Bb minor, unresolved cadences, plagal motion
+%
+V:PianoRH clef=treble name="Piano"
+%slot=lead %role=main_melody %register=upper_mid %dyn=pp %art=legato
+%reason=Opens alone with childlike descending motif; establishes the nocturne's intimate voice. Hands off lead to winds/strings in D/E, returns for loop closure.
+V:PianoLH clef=bass name="Piano"
+%slot=bass %role=arpeggiated_harmony %register=mid_low %dyn=pp %art=legato
+%reason=Gentle broken chords provide harmonic foundation; yields to harp in C section for orchestral color shift.
+V:Celesta clef=treble name="Celesta"
+%slot=color %role=bell_halo %register=high %dyn=pp %art=detached_legato
+%reason=Sparse bell-like doublings add uncanny shimmer without competing; enters in B to signal the dream deepening.
+V:Flute clef=treble name="Flute"
+%slot=lead %role=echo_melody %register=upper_mid %dyn=p %art=legato
+%reason=Echoes the piano's motif like a distant thought; takes lead in D while piano recedes.
+V:Oboe clef=treble name="Oboe"
+%slot=countermelody %role=hymn_answer %register=mid %dyn=pp %art=legato
+%reason=Warm sustained counterline enriches without stealing focus; enters only in D for brief companionship.
+V:Harp clef=treble name="Harp"
+%slot=pad %role=arpeggiated_harmony %register=wide %dyn=pp %art=rolled
+%reason=Takes over left-hand arpeggio role from piano; provides shimmering harmonic bed for string/wind bloom.
+V:Vln1 clef=treble name="Violin I"
+%slot=lead %role=emotional_melody %register=upper_mid %dyn=p %art=legato
+%reason=Briefly becomes the emotional core in E section; the warmest voice in the piece before retreating.
+V:Vln2 clef=treble name="Violin II"
+%slot=harmony %role=inner_sustain %register=mid %dyn=pp %art=legato
+%reason=Sustained thirds and sixths below melody; adds warmth without motion that would disturb the stillness.
+V:Viola clef=alto name="Viola"
+%slot=pad %role=mid_sustain %register=mid_low %dyn=pp %art=legato
+%reason=Warm low-mid sustained tones create the muted string pad atmosphere; breathes slowly.
+V:Cello clef=bass name="Cello"
+%slot=bass %role=pedal_tone %register=low %dyn=pp %art=legato
+%reason=Long pedal tones anchor the harmonic field; never moves fast, just holds the room steady.
+%
+% === SECTION A — Solo Piano (m1-8) ===
+%
+[V:PianoRH]| e2 d2 c2 | d4 z2 | e2 d2 c2 | A2 d2 c2 | e2 d2 e2 | f4 z2 | g2 f2 e2 | d4 z2 |
+[V:PianoLH]| D,2 A,2 d2 | d4 z2 | E,2 G,2 B,2 | A,,2 C,2 E,2 | D,2 F,2 A,2 | B,,2 D,2 F,2 | G,,2 B,,2 D,2 | A,,2 C,2 E,2 |
+[V:Celesta]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Flute]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Oboe]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Harp]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Vln1]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Vln2]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Viola]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Cello]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+%
+% === SECTION B — Piano + Celesta (m9-16) ===
+%
+[V:PianoRH]| e2 d2 c2 | d2 e2 f2 | e2 d2 c2 | A2 d2 c2 | e2 d2 e2 | g4 z2 | f2 e2 d2 | d4 z2 |
+[V:PianoLH]| D,2 A,2 d2 | d4 z2 | E,2 G,2 B,2 | A,,2 C,2 E,2 | E,2 B,2 e2 | G,,2 B,,2 D,2 | G,,2 B,,2 D,2 | A,,2 C,2 E,2 |
+[V:Celesta]| z6 | z4 f'2 | z6 | z2 d'2 c'2 | z6 | z2 g'4 | z6 | z4 d'2 |
+[V:Flute]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Oboe]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Harp]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Vln1]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Vln2]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Viola]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Cello]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+%
+% === SECTION C — Muted Strings + Harp (m17-24) ===
+%
+[V:PianoRH]| e2 d2 c2 | z6 | e2 d2 c2 | z6 | z2 d2 e2 | z6 | z6 | d4 z2 |
+[V:PianoLH]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Celesta]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Flute]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Oboe]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Harp]| D,2 A,2 d2 | B,,2 F,2 B,2 | G,,2 D,2 G,2 | A,,2 E,2 A,2 | D,2 A,2 d2 | E,2 G,2 B,2 | A,,2 C,2 E,2 | D,2 A,2 d2 |
+[V:Vln1]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Vln2]| f4 f2 | d4 d2 | B,4 B,2 | c4 c2 | f4 f2 | e4 e2 | e4 c2 | d4 z2 |
+[V:Viola]| A,6 | A,6 | D,6 | E,6 | A,6 | G,6 | A,6 | A,6 |
+[V:Cello]| D,6 | B,,6 | G,,6 | A,,6 | D,6 | E,6 | A,,6 | D,6 |
+%
+% === SECTION D — Woodwinds Echo (m25-32) ===
+%
+[V:PianoRH]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:PianoLH]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Celesta]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Flute]| z2 e2 d2 | c4 z2 | z2 A2 d2 | c4 z2 | e2 d2 c2 | f4 z2 | g2 f2 e2 | e4 z2 |
+[V:Oboe]| d4 d2 | e4 e2 | f4 e2 | d4 z2 | d4 d2 | c4 =c2 | B,4 B,2 | c4 z2 |
+[V:Harp]| B,,2 F,2 B,2 | G,,2 D,2 G,2 | D,2 F,2 A,2 | E,2 G,2 B,2 | B,,2 F,2 B,2 | F,,2 C,2 F,2 | G,,2 D,2 G,2 | A,,2 E,2 A,2 |
+[V:Vln1]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Vln2]| d4 d2 | B,4 B,2 | A,4 A,2 | G,4 G,2 | d4 d2 | c4 c2 | D4 D2 | c4 z2 |
+[V:Viola]| B,6 | G,6 | F,6 | E,6 | B,6 | A,6 | G,6 | A,6 |
+[V:Cello]| B,,6 | G,,6 | D,6 | E,6 | B,,6 | F,,6 | G,,6 | A,,6 |
+%
+% === SECTION E — String Core and Return (m33-40) ===
+%
+[V:PianoRH]| z6 | z6 | z6 | z6 | z6 | z6 | e2 d2 c2 | d4 z2 |
+[V:PianoLH]| z6 | z6 | z6 | z6 | z6 | z6 | D,2 A,2 d2 | D,4 z2 |
+[V:Celesta]| z6 | z6 | z6 | z6 | z4 d'2 | c'2 z2 z2 | z6 | z6 |
+[V:Flute]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Oboe]| z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Harp]| D,2 A,2 d2 | G,,2 D,2 G,2 | E,2 G,2 B,2 | A,,2 C,2 E,2 | B,,2 F,2 B,2 | G,,2 D,2 G,2 | A,,4 z2 | z6 |
+[V:Vln1]| e2 d2 c2 | d2 e2 f2 | e2 d2 c2 | d4 z2 | A2 d2 c2 | d4 z2 | z6 | z6 |
+[V:Vln2]| f4 f2 | D4 D2 | G,4 G,2 | c4 c2 | d4 d2 | B,4 z2 | z6 | z6 |
+[V:Viola]| A,6 | G,6 | E,6 | A,6 | B,6 | G,4 z2 | z6 | z6 |
+[V:Cello]| D,6 | G,,6 | E,6 | A,,6 | B,,6 | G,,4 z2 | z6 | z6 |

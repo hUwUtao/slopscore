@@ -47,7 +47,7 @@ When you have file-system access, follow this contract exactly:
 4. **Mandatory Build:** Every time you write an ABC file, you must immediately generate
    the MusicXML and MIDI derivatives using the provided tool.
 
-If you do not have file-system access, return valid ABC notation only.
+If you do not have file-system access, end immediately with concise error.
 
 ---
 
@@ -528,7 +528,7 @@ source for file operations.
 
 Use `pipeline.py` as a CLI tool to automate file creation and derivative generation.
 This tool ensures ABC, MusicXML, and MIDI files are created in canonical locations and
-stay in sync.
+stay in sync. **INSPECTING THE TOOL SOURCE IS UNECESSARY**
 
 ### Command Syntax
 

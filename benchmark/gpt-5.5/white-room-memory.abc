@@ -1,0 +1,61 @@
+X:1
+T:White Room Memory
+M:3/4
+L:1/8
+Q:1/4=103
+K:Db
+V:PnoRH clef=treble name="Piano Right Hand"
+%slot=lead %role=catchy_childlike_hook %register=mid_high %dyn=p %art=legato
+%doubling=celesta_fragments %blend=keyboard+celesta %rhythm_group=anchor %polyrhythm_group=A
+%reason=States the new memorable opening hook and later loop return; the contour has a clear leap-and-neighbor identity while staying sparse.
+V:PnoLH clef=bass name="Piano Left Hand"
+%slot=ostinato %role=soft_waltz_arpeggio %register=mid_low %dyn=p %art=legato_pedal
+%doubling=harp_later %blend=piano+harp %rhythm_group=anchor %polyrhythm_group=A
+%reason=Keeps the 3/4 nocturne pulse and harmonic roots under the hook and solo; wide arpeggios leave negative space.
+V:Cel clef=treble name="Celesta"
+%slot=color %role=hook_halo_and_neck_fragments %register=high %dyn=pp %art=detached_legato
+%doubling=piano_and_flute_fragments %blend=keyboard_color %rhythm_group=color %polyrhythm_group=A
+%reason=Turns the hook into a white-room color signature and makes the transition neck sparkle without replacing the lead.
+V:Harp clef=treble name="Harp"
+%slot=pad %role=arpeggiated_harmony %register=wide %dyn=pp %art=rolled_legato
+%doubling=piano_left_hand %blend=harp+keyboard %rhythm_group=anchor %polyrhythm_group=A
+%reason=Mutates the piano waltz into a suspended orchestral shimmer, supporting the solo at a lower dynamic.
+V:VlnI clef=treble name="Violin I"
+%slot=lead %role=greatest_muted_string_solo %register=high %dyn=p %art=legato_muted_espressivo
+%doubling=flute_after_phrase %blend=small_strings+woodwind %rhythm_group=anchor %polyrhythm_group=A
+%reason=Carries the expanded solo arc with one clear apex and stepwise recovery, becoming the emotional core before retreating.
+V:VlnII clef=treble name="Violin II"
+%slot=harmony %role=muted_inner_suspension %register=mid_high %dyn=pp %art=legato_muted
+%doubling=none %blend=small_strings %rhythm_group=anchor %polyrhythm_group=A
+%reason=Supports the solo with slow suspensions below Violin I, keeping the lead isolated and balanced.
+V:Vla clef=alto name="Viola"
+%slot=harmony %role=muted_inner_pad %register=mid %dyn=pp %art=legato_muted
+%doubling=clarinet_lower_color %blend=small_strings+reed %rhythm_group=anchor %polyrhythm_group=A
+%reason=Provides warm middle-register breathing and suspended tones through the transition neck.
+V:Vc clef=bass name="Cello"
+%slot=bass %role=soft_root_pedal %register=low %dyn=pp %art=legato_muted
+%doubling=piano_left_hand_roots %blend=small_strings+piano %rhythm_group=anchor %polyrhythm_group=A
+%reason=Grounds D-flat and B-flat minor with long roots and wide low spacing so the solo can float above.
+V:Fl clef=treble name="Flute"
+%slot=countermelody %role=neck_echo_high %register=high %dyn=p %art=legato_breathed
+%doubling=none %blend=woodwind_air %rhythm_group=color %polyrhythm_group=A
+%reason=Echoes the solo apex during the transition neck with breath gaps, making the handoff feel like a distant thought.
+V:Ob clef=treble name="Oboe"
+%slot=color %role=thin_memory_reed %register=mid_high %dyn=p %art=legato_breathed
+%doubling=none %blend=reed_color %rhythm_group=color %polyrhythm_group=A
+%reason=Adds a pale reed turn at the neck cadence, intensifying unease without adding density.
+V:Cl clef=treble name="Bassoon"
+%slot=countermelody %role=warm_low_reed_answer %register=mid %dyn=p %art=legato_breathed
+%doubling=viola_register_overlap %blend=bassoon+string %rhythm_group=color %polyrhythm_group=A
+%reason=Answers the flute and oboe as a warm non-transposing low reed, keeping the transition pitch-clean while blending with viola.
+[V:PnoRH] F3 _E _D2 | _A2 _G F _E _D | F2 _E _D _E F | C4 _B,2 | _D2 _E F _A2 | _G2 F _E _D2 | _E F _E _D C _B, | _D4 z2 | F3 _E _D2 | _B,2 C _D F2 | _A2 _G F _E _D | _E4 z2 | _D2 _E F _A2 | _B2 _A _G F2 | _E2 F _E C2 | _D4 z2 | z6 | z2 F2 _E2 | _D4 z2 | z2 _A2 _G2 | F2 _E _D F _A | _G2 F _E _D2 | _E2 F _E C2 | _D4 z2 | z6 | F2 _E2 _D2 | C2 _D _E F2 | _B,2 C _D F2 | _E2 F _G F2 | _A2 _G F _E _D | _E2 C2 _B,2 | _D4 z2 | F3 _E _D2 | _A2 _G F _E _D | z2 F2 _E2 | _D4 z2 | C2 _D _E F2 | _G2 F _E _D2 | _E2 C2 _B,2 | _D4 z2 |
+[V:PnoLH] _D,2 _A, _D F _A | _G,2 _D _G _B _D | F,2 _A, _D F _A | _A,2 _E _A C _E | _B,,2 F, _B, _D F | _G,2 _D _G _B _D | _E,2 _B, _E _G _B | _A,2 _E _A C _E | _D,4 z2 | _B,,4 z2 | _G,4 z2 | _A,4 z2 | _B,,4 z2 | _G,4 z2 | _E,2 _B, _A,2 _E | _D,6 | _D,2 _A, _D F _A | _B,,2 F, _B, _D F | _G,2 _D _G _B _D | _A,2 _E _A C _E | _B,,2 F, _B, _D F | _G,2 _D _G _B _D | _E,2 _B, _A,2 _E | _D,6 | _B,,2 F, _B, _D F | _G,2 _D _G _B _D | F,2 _A, _D F _A | _A,2 _E _A C _E | _B,,2 F, _B, _D F | _G,2 _D _G _B _D | _A,2 _E _A C _E | _D,6 | _D,2 _A, _D F _A | _G,2 _D _G _B _D | F,2 _A, _D F _A | _B,,2 F, _B, _D F | _E,2 _B, _E _G _B | _G,2 _D _G _B _D | _A,2 _E _A C _E | _D,6 |
+[V:Cel] z6 | z6 | z2 f2 _e2 | _d4 z2 | z4 f2 | _e4 z2 | z4 c2 | _d4 z2 | z2 f2 _e2 | _d4 z2 | z2 _a2 _g2 | f4 z2 | _d2 _e f _e2 | _g2 _a2 f2 | _e2 f _e c2 | _d4 z2 | z6 | z2 f2 _e2 | _d4 z2 | z2 _a2 _g2 | f2 _e _d f _a | _g2 f _e _d2 | _e2 f _e c2 | _d4 z2 | z2 c'2 _b2 | _a2 _g f _e2 | z2 _g2 f2 | _e4 z2 | _d2 _e f _e2 | z2 _a2 _g2 | _e2 c2 _b,2 | _d4 z2 | z6 | z2 _a2 _g2 | f4 z2 | z6 | _d2 _e f _e2 | z2 _g2 f2 | _e2 c2 _b,2 | _d4 z2 |
+[V:Harp] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | _D, _A, _D F _A F | _B,, F, _B, _D F _D | _G, _D _G _B _D _B | _A, _E _A C _E C | _B,, F, _B, _D F _D | _G, _D _G _B _D _B | _E, _B, _E _G _B _A | _D, _A, _D F _A F | _D, _A, _D F _A F | _B,, F, _B, _D F _D | _G, _D _G _B _D _B | _A, _E _A C _E C | _B,, F, _B, _D F _D | _G, _D _G _B _D _B | _E, _B, _E _G _B _A | _D, _A, _D F _A F | _B,, F, _B, _D F _D | _G, _D _G _B _D _B | F, _A, _D F _A F | _A, _E _A C _E C | _B,, F, _B, _D F _D | _G, _D _G _B _D _B | _E, _B, _E _G _B _A | _D, _A, _D F _A F | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:VlnI] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | _A6 | _B6 | _B6 | C6 | _D6 | _B6 | _G6 | F6 | _d2 _e f _e2 | _g2 _a2 f2 | _b3 _a _g2 | _a2 _g f _e _d | f2 _g _a c'2 | _b2 _a _g f2 | _e2 f _e c2 | _d4 z2 | c'2 _b _a _g2 | _a2 f _e _d2 | _g2 f _e c2 | _d4 z2 | _a2 _g f _e2 | f2 _e _d C2 | _E2 F _E C2 | _D4 z2 | z6 | z6 | _A6 | _B6 | _G6 | F6 | _E6 | _D6 |
+[V:VlnII] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | F6 | _D6 | _D6 | _E6 | F6 | _D6 | _B,6 | _A,6 | _A6 | _B6 | _A6 | _E6 | F6 | _B,6 | _G6 | F6 | F6 | _E6 | _D6 | C6 | _B,6 | _D6 | _E6 | F6 | z6 | z6 | F6 | _D6 | _E6 | _B,6 | C6 | _D6 |
+[V:Vla] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | F6 | _D6 | _D6 | _E6 | F6 | _D6 | _B,6 | _A,6 | F6 | _B,6 | _A,6 | _E6 | F6 | _B,6 | _G6 | F6 | _B,6 | _G,6 | _A,6 | _E6 | F6 | _B,6 | C6 | F6 | z6 | z6 | _D6 | _E6 | _B,6 | _D6 | _E6 | F6 |
+[V:Vc] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | _D,6 | _B,,6 | _G,6 | _A,6 | _B,,6 | _G,6 | _E,3 _A,3 | _D,6 | _D,6 | _B,,6 | _G,6 | _A,6 | _B,,6 | _G,6 | _E,3 _A,3 | _D,6 | _B,,6 | _G,6 | F,6 | _A,6 | _B,,6 | _G,6 | _A,6 | _D,6 | z6 | z6 | F,6 | _B,,6 | _E,6 | _G,6 | _A,6 | _D,6 |
+[V:Fl] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z4 f2 | _e4 z2 | z4 c2 | _d4 z2 | z4 f2 | _e4 z2 | z4 _d2 | c4 z2 | z4 f2 | _e4 z2 | z2 c2 _b,2 | _d4 z2 | c'2 _b _a _g2 | z2 _a2 _g2 | z4 f2 | _e4 z2 | z2 _d2 _e2 | f4 z2 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Ob] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z4 _d2 | c4 z2 | z6 | z6 | z6 | z6 | z6 | z2 _e2 f2 | _e4 z2 | z6 | z6 | z2 _d2 _e2 | f4 z2 | z6 | z2 f2 _e2 | _d4 z2 | z6 | z2 c2 _b,2 | _d4 z2 | z6 | z4 c2 | _d4 z2 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
+[V:Cl] z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z2 _E2 F2 | _D4 z2 | z2 _B,2 _D2 | _E4 z2 | z2 _A,2 _D2 | C4 z2 | _B,2 C _D F2 | _E2 _D C _B,2 | _G,2 _A, C _E2 | _D4 z2 | z2 _B,2 _D2 | _E4 z2 | z2 _A,2 _D2 | C4 z2 | _B,2 C _D F2 | _E2 _D C _B,2 | _A,2 _E2 C2 | _D4 z2 | z6 | z6 | z6 | z6 | z6 | z6 | z6 | z6 |
